@@ -4,6 +4,7 @@ import './App.css'
 import { ResourceType, Package, SearchRequest } from './Interfaces';
 import { Asset } from './Asset';
 import { AssetCompact } from './AssetCompact';
+import { searchAPI } from './services/api';
 
 const { Search } = Input;
 
@@ -41,17 +42,8 @@ function App() {
         skip: 0
       };
 
-      const response = await fetch('/api/search/', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody)
-      });
-
-      const data = (await response.json()) as Package[];
-
+      const data = await searchAPI.search(requestBody);
+      
       setPackages(data);
       // Set total to either the actual count or MAX_RESULTS
       setTotalResults(Math.min(data.length === pageSize ? MAX_RESULTS : data.length, MAX_RESULTS));
@@ -81,19 +73,9 @@ function App() {
         skip: (page - 1) * newPageSize
       };
 
-      const response = await fetch('/api/search/', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody)
-      });
-
-      const data = (await response.json()) as Package[];
+      const data = await searchAPI.search(requestBody);
       setPackages(data);
       
-      // Update total if we get fewer results than expected
       if (data.length < newPageSize && (page - 1) * newPageSize + data.length < totalResults) {
         setTotalResults((page - 1) * newPageSize + data.length);
       }
