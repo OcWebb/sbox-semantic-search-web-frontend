@@ -1,12 +1,10 @@
 import { SearchRequest } from "../Interfaces";
 import { Package } from "../Interfaces/Package";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
-
 export const searchAPI = {
   search: async (requestBody: SearchRequest): Promise<Package[]> => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/search/`, {
+      const response = await fetch('/api/search/', {
         method: 'POST',
         headers: {
           'accept': 'application/json',
