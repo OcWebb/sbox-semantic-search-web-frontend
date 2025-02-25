@@ -1,0 +1,90 @@
+.package {
+    padding: 5px;
+    border: 1px solid #182B49;
+    border-radius: 8px;
+    width: 150px;
+    height: 100%;
+}
+
+.package-compact {
+    padding: 5px;
+    border: 1px solid #182B49;
+    border-radius: 8px;
+    width: 100px;
+    height: 100%;
+}
+
+.package-compact img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+}
+
+.package-compact-text {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.package img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+}
+
+.package-title {
+    margin: 0;
+    min-height: 3em;
+    align-content: center;
+    text-align: center;
+}
+
+.type-id {
+    display: flex;
+    justify-content: space-between
+}
+
+.resource-type-select {
+    width: 250px;
+}
+
+.ant-select-selection-item {
+    color: black;
+}
+
+.ant-select-item-option-content {
+    color: black;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 200px;
+    max-width: 600px;
+}
+
+.compact-view-checkbox {
+    margin-left: 10px;
+}
+
+#search {
+    color: black;
+}
+
+.pagination-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.pagination-container a {
+    color: black;
+}
